@@ -1,14 +1,17 @@
 const jokeElement = document.getElementById ('joke');
-const jokebtn = document.getElementById ('jokeBtn');
+const jokeBtn = document.getElementById ('jokeBtn');
 
+// Kör ett skämt direkt
 generateJoke ();
 
+//Skapa en funktion "generateJoke" och skkicka en förfrågan (fetch) till Dad Joke API med headers och Accept
 function generateJoke() {
     const config = {
         headers: {
             Accept: 'application/json',
         },
     };
+// Vänta på svaret och omvandla det till JSON och Visa skämtet i HTML-elementet
 
  fetch('https://icanhazdadjoke.com/', config)
         .then(res => res.json())
@@ -19,18 +22,4 @@ function generateJoke() {
 
 jokeBtn.addEventListener('click', generateJoke);
 
-
-/*
-Pseudokod:
-1. Hämta HTML-element:
-   - diven där skämtet ska visas
-   - CTA som användaren klickar på
-
-2. Skapa en funktion "generateJoke":
-   a. Skicka en förfrågan (fetch) till Dad Joke API med headers: Accept: application/json
-   b. Vänta på svaret och omvandla det till JSON
-   c. Visa skämtet i HTML-elementet
-
-3. Kör funktionen en gång direkt när sidan laddas
-4. Lägg till en eventlistener på knappen så att funktionen körs vid varje klick
-*/
+// Lägg till en eventlistener på knappen så att funktionen körs vid varje klick
